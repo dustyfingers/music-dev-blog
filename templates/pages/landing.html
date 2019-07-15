@@ -2,33 +2,9 @@
 {% load static %}
 
 {% block content %}
-<!--================ Start Blog Post Area =================-->
-<section class="section-margin mt-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/blog1.png' %}" alt="">
-                        <ul class="thumb-info">
-                            <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                            <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                        </ul>
-                    </div>
-                    <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h3>Landing page - latest post goes here</h3>
-                        </a>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser
-                            cattle were fruitful lights given yields golden flower honey bloom, afterwards candle light
-                            warm cloth...
-                        </p>
-                        <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<link rel="stylesheet" href="{% static 'css/landing.css' %}">
+<section class='landing'>
+    <!-- <img src="{% static 'img/landing-bg.jpg' %}" alt="Landing page background" class='landing-image'> -->
 </section>
 
 {% endblock content %}
