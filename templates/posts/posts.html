@@ -14,7 +14,9 @@
                 {% for post in posts %}
                 <div class="single-recent-blog-post">
                     <div class="thumb">
-                        <img class="img-fluid w-100" src="{{ post.photo }}" alt="{{ post.title }}">
+                        {% if post.photo %}
+                            <img class="img-fluid w-100" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        {% endif %}
                     </div>
                     <div class="details mt-20">
                         <a href="{% url 'post' post.id %}"">
