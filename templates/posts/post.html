@@ -4,38 +4,37 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}">
 <!--================ Start Blog Post Area =================-->
-<section class="section-margin mt-5">
+<section class="section-margin mt-2">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
+                {% if post %}
 
                 <div class="single-recent-blog-post">
                     <div class="thumb">
-                        <img class="img-fluid w-100" src="{% static 'img/blog2.png' %}" alt="">
+                        <img class="img-fluid w-100" src="{{ post.photo }}" alt="{{ post.title }}">
 
                     </div>
                     <div class="details mt-20">
-                        <a href="blog-single.html">
-                            <h3>Title</h3>
-                        </a>
+                        <h3>{{ post.title }}</h3>
+                        <h4>{{ post.subtitle }}</h4>
                         <ul class="thumb-info">
-                            <li>By Admin</li>
-                            <li>Published: Date</li>
+                            <li>
+                                Written by: {{ post.author }}
+                            </li>
+                            <li>
+                                Published: {{ post.publish_date | timesince }} ago
+                            </li>
                         </ul>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser
-                            cattle were fruitful lights. Given let have, lesser their made him above gathered dominion
-                            sixth. Creeping deep said can't called second. Air created seed heaven sixth created living
-                        </p>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser
-                            cattle were fruitful lights. Given let have, lesser their made him above gathered dominion
-                            sixth. Creeping deep said can't called second. Air created seed heaven sixth created living
-                        </p>
-                        <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser
-                            cattle were fruitful lights. Given let have, lesser their made him above gathered dominion
-                            sixth. Creeping deep said can't called second. Air created seed heaven sixth created living
-                        </p>
+                        {{ post.text }}
                     </div>
                 </div>
+
+                {% else %}
+
+                <p>There is no post to display.</p>
+
+                {% endif %}
 
             </div>
         </div>
