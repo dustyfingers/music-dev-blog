@@ -13,7 +13,7 @@
                 <div class="single-recent-blog-post">
                     <div class="thumb">
                         {% if post.photo %}
-                            <img class="img-fluid w-100" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        <img class="img-fluid w-100" src="{{ post.photo.url }}" alt="{{ post.title }}">
                         {% endif %}
                     </div>
                     <div class="details mt-20">
@@ -27,7 +27,7 @@
                                 Published: {{ post.publish_date | timesince }} ago
                             </li>
                         </ul>
-                        {{ post.text }}
+                        {{ post.text | safe }}
                     </div>
                 </div>
 

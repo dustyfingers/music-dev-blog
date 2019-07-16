@@ -30,7 +30,7 @@
                                 Published: {{ post.publish_date | timesince }} ago
                             </li>
                             </ul>
-                            <p>{{post.text}}</p>
+                            <p>{{ post.text | safe }}</p>
                             <a class="button" href="{% url 'post' post.id %}">Read More</a>
                     </div>
                 </div>
