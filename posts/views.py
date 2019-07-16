@@ -5,7 +5,7 @@ from .models import Post
 def posts(request):
     posts = Post.objects.order_by('-publish_date').filter(is_published=True)
     for post in posts:
-        print(post.text)
+        post.text = post.text[:200] + '...'
     context = {
         'posts': posts
     }
