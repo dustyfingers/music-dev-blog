@@ -7,9 +7,11 @@
 <link rel="stylesheet" href="{% static 'css/posts.css' %}">
 <!--================ Start Blog Post Area =================-->
 <section class="section-margin mt-2">
+    <h2>Search results:</h2>
     <div class="container">
         <div class="row display-flex flex-column align-items-center">
             <div class="col-lg-11">
+                {% if posts %}
                 {% for post in posts %}
                 <div class="single-recent-blog-post">
                     <div class="thumb">
@@ -19,10 +21,10 @@
                     </div>
                     <div class="details mt-20">
                         <a href="{% url 'post' post.id %}"">
-                            <h3>{{ post.title }}</h3>
-                        </a>
-                        <h5 class='text-muted'>{{ post.subtitle }}</h5>
-                        <ul class=" thumb-info">
+                                    <h3>{{ post.title }}</h3>
+                                </a>
+                                <h5 class='text-muted'>{{ post.subtitle }}</h5>
+                                <ul class=" thumb-info">
                             <li>
                                 Written by: {{ post.author }}
                             </li>
@@ -81,6 +83,9 @@
                     {% endif %}
                 </nav>
             </div>
+            {% else %}
+            <h2>No posts found.</h2>
+            {% endif %}
         </div>
     </div>
 </section>

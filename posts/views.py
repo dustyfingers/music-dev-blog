@@ -25,3 +25,18 @@ def post(request, post_id):
         'post': post
     }
     return render(request, 'posts/post.html', context)
+
+
+def search(request):
+    queryset_list = Post.objects.order_by('-publish_date').filter(is_published=True)
+    # Keywords
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+        if keywords:
+            queryset_list = queryset_list.filter(title__icontains=keywords)
+
+    context = {
+        'posts': queryset_list,
+        'values': request.GET
+    }
+    return render(request, 'posts/search.html', context)
